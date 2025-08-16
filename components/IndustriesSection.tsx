@@ -34,32 +34,47 @@ export default function IndustriesSection() {
   ];
 
   return (
-    <section className="py-20 bg-[#F8F9FA]">
-      <div className="container mx-auto px-6">
+    <section 
+        data-aos="fade-left"
+        data-aos-delay="100"
+    className="py-8 bg-[#F8F9FA]" id="industries">
+   
+<div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-[#002D62]/10 text-[#002D62] rounded-full text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 bg-[#002D62]/10 text-[#002D62] rounded-full text-sm font-medium mb-4 ">
             Industries We Serve
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-6">
+          <h2 
+          data-aos="fade-down"
+          data-aos-delay="200"
+          data_aos-duration="500"
+          className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-6 text-justify">
             Specialized Expertise Across Key Sectors
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p
+          data-aos="fade-up"
+          data-aos-delay="300"
+          data_aos-duration="500"
+          className="text-xl text-gray-600 max-w-3xl mx-auto text-justify">
             Our deep industry knowledge and specialized solutions serve diverse sectors, 
             from traditional agriculture to cutting-edge technology.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div 
+              data-aos="fade-down"
+              data-aos-delay="100"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {industries.map((industry, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-1000 transform hover:-translate-y-2 group "
             >
               <div className="relative overflow-hidden">
                 <img
                   src={industry.image}
                   alt={industry.title}
-                  className="w-full h-48 object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-48 object-cover object-top group-hover:scale-125 transition-transform duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4">
@@ -87,18 +102,32 @@ export default function IndustriesSection() {
           ))}
         </div>
 
-        <div className="bg-white rounded-3xl p-8 lg:p-12">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-[#002D62] mb-4">
+        <div
+         data-aos="fade-right"
+        data-aos-delay="100"
+        className="bg-white rounded-3xl p-8 ">
+          <div
+          className="text-center mb-12">
+            <h3
+             data-aos="fade-down"
+        data-aos-delay="200"
+            className="text-3xl font-bold text-[#002D62] mb-4 text-justify">
               Don't See Your Industry?
             </h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p
+             data-aos="fade-down"
+        data-aos-delay="100"
+            className="text-lg text-gray-600 max-w-2xl mx-auto text-justify">
               We work across numerous other sectors including automotive, chemicals, pharmaceuticals, 
               and renewable energy. Our adaptable solutions can be tailored to any industry.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          <div 
+          data-aos="fade-down"
+          data-aos-delay="200"
+          data_aos-duration="500"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
             <div className="text-center">
               <div className="w-16 h-16 bg-[#002D62]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <i className="ri-car-line text-2xl text-[#002D62]"></i>
@@ -115,7 +144,7 @@ export default function IndustriesSection() {
               <div className="w-16 h-16 bg-[#002D62]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <i className="ri-capsule-line text-2xl text-[#002D62]"></i>
               </div>
-              <h4 className="font-semibold text-[#002D62]">Pharmaceuticals</h4>
+              <h4 className="font-semibold text-[#002D62] w-[90%] break-words">Pharmaceuticals</h4>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-[#002D62]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
@@ -125,14 +154,17 @@ export default function IndustriesSection() {
             </div>
           </div>
 
-          <div className="text-center">
-            <button className="bg-[#D4AF37] hover:bg-[#B8941F] text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer mr-4">
-              Discuss Your Industry
-            </button>
-            <button className="border-2 border-[#002D62] text-[#002D62] hover:bg-[#002D62] hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
-              View All Sectors
-            </button>
-          </div>
+    
+<div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+  <button className="bg-[#D4AF37] hover:bg-[#B8941F] text-white px-6 py-4 rounded-lg font-semibold whitespace-nowrap cursor-pointer transition-all duration-500 transform hover:scale-105 w-full sm:w-48">
+    Discuss Your Industry
+  </button>
+  <button className="border-2 border-[#002D62] text-[#002D62] hover:bg-[#002D62] hover:text-white px-6 py-4 rounded-lg font-semibold whitespace-nowrap cursor-pointer transition-all duration-500 transform hover:scale-105 w-full sm:w-48">
+    View All Sectors
+  </button>
+</div>
+
+
         </div>
       </div>
     </section>

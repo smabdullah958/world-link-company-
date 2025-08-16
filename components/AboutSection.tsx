@@ -1,10 +1,29 @@
 
-
 'use client';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import CountUp from 'react-countup';
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import Image from 'next/image';
+
 
 export default function AboutSection() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration in ms
+      once: true, // only animate once
+    });
+  }, []);
+
+    // Observer hooks
+  const { ref: countriesRef, inView: countriesVisible } = useInView({ triggerOnce: true });
+  const { ref: tradeRef, inView: tradeVisible } = useInView({ triggerOnce: true });
+
+
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 bg-white text-justify" id="about" data-aos="fade-left">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -16,7 +35,7 @@ export default function AboutSection() {
             <h2 className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-8 leading-tight">
               Global Trade Excellence Since 1995
             </h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed text-justify">
               For nearly three decades, WorldLink Exports has been at the forefront of international trade, 
               connecting businesses across continents with reliable, efficient, and innovative logistics solutions. 
               We've facilitated over $2.5 billion in global trade transactions.
@@ -25,7 +44,7 @@ export default function AboutSection() {
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <i className="ri-eye-line text-[#D4AF37] text-xl"></i>
+                  <i className="ri-eye-line text-[#D4AF37] text-xl "  ></i>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-[#002D62] mb-2">Our Vision</h3>
@@ -65,28 +84,69 @@ export default function AboutSection() {
           </div>
 
           <div className="relative">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-6"
+               data-aos="zoom-in"
+                data-aos-delay="200">
               <div className="space-y-6">
-                <img
-                  src="https://readdy.ai/api/search-image?query=Modern%20international%20business%20office%20with%20professionals%20working%20on%20global%20trade%20documents%20and%20logistics%20planning%2C%20clean%20workspace%20with%20computers%20showing%20shipping%20data%2C%20professional%20lighting%20and%20contemporary%20design&width=300&height=200&seq=about-1&orientation=landscape"
-                  alt="Global trade operations"
-                  className="w-full h-48 object-cover rounded-xl shadow-lg object-top"
-                />
-                <div className="bg-[#002D62] text-white p-6 rounded-xl">
-                  <div className="text-3xl font-bold text-[#D4AF37] mb-2">45+</div>
+                
+            <div className="relative w-full h-56 sm:h-64 lg:h-72 rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/businessman.jpeg"  // <- fixed path
+                    alt="Global trade operations"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                    className="object-cover object-top transform transition-transform duration-500 hover:scale-105"
+                    priority
+                  />
+                </div>
+
+
+                <div className="bg-[#002D62] text-white p-6 rounded-xl transform transition-transform duration-500 hover:scale-105">
+                  <div        
+                    ref={tradeRef} 
+                   className="text-3xl font-bold text-[#D4AF37] mb-2 ">
+                    {tradeVisible && (
+
+                          <CountUp
+        start={1}      // starting number
+        end={45}      // ending number
+        duration={5} // seconds
+        suffix="+"    // text after number
+/>
+)}
+                  </div>
                   <div className="text-sm">Countries Served</div>
                 </div>
               </div>
-              <div className="space-y-6 pt-12">
-                <div className="bg-[#D4AF37] text-white p-6 rounded-xl">
-                  <div className="text-3xl font-bold mb-2">$2.5B+</div>
+              <div className="space-y-6 pt-12  ">
+                <div 
+                className="bg-[#D4AF37] text-white p-6 rounded-xl transform transition-transform duration-500 hover:scale-105">
+                  <div
+                  ref={countriesRef}
+                  className="text-3xl font-bold mb-2 ">
+                      {countriesVisible && (
+                          <CountUp
+        start={1}      // starting number
+        end={2.5}      // ending number
+        duration={5} // seconds
+        decimals={1}   // show one decimal
+        suffix="B+"    // text after number
+       
+      />
+      )}
+                  </div>
                   <div className="text-sm">Trade Volume</div>
                 </div>
-                <img
-                  src="https://readdy.ai/api/search-image?query=International%20cargo%20terminal%20with%20shipping%20containers%20being%20loaded%20onto%20freight%20vessels%2C%20industrial%20port%20operations%20with%20cranes%20and%20logistics%20equipment%2C%20representing%20global%20export%20business%20efficiency&width=300&height=200&seq=about-2&orientation=landscape"
-                  alt="Container operations"
-                  className="w-full h-48 object-cover rounded-xl shadow-lg object-top"
-                />
+                
+                <div className="relative w-full h-56 sm:h-64 lg:h-72 rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/imag3.jpeg"
+                    alt="Container operations"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                    className="object-cover object-top transform transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
               </div>
             </div>
 

@@ -1,9 +1,11 @@
 
 'use client';
+import axios from 'axios';
 import { useState } from 'react';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
+    access_key:"881b5b74-2a53-4d04-b485-2284ecf313ed",
     name: '',
     email: '',
     company: '',
@@ -13,14 +15,26 @@ export default function ContactSection() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', company: '', phone: '', service: '', message: '' });
-    }, 3000);
-  };
+ const handleSubmit = async () => {
+  try {
+    const response = await axios.post(
+    "https://api.web3forms.com/submit",
+      formData,
+        );
+
+    if (response.data.success) {
+      console.log('Form submitted successfully');
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({access_key:"881b5b74-2a53-4d04-b485-2284ecf313ed", name: '', email: '', company: '', phone: '', service: '', message: '' });
+      }, 3000);
+    }
+    
+  } catch (error) {
+    console.error('Error submitting form', error);
+  }
+};
 
   const offices = [
     {
@@ -50,27 +64,42 @@ export default function ContactSection() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section 
+    data-aos="fade-right text-justify"
+     data-aos-delay="100"
+    className="py-12 bg-white" id="contact">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-[#D4AF37]/10 text-[#D4AF37] rounded-full text-sm font-medium mb-4">
             Get In Touch
-          </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-6">
+          </span> 
+          <h2 
+              data-aos="fade-down"
+              data-aos-delay="200"
+          className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-6 text-justify">
             Let's Start Your Global Trade Journey
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p 
+              data-aos="fade-up"
+              data-aos-delay="300"
+          className="text-xl text-gray-600 max-w-3xl mx-auto text-justify">
             Ready to expand your business globally? Our expert team is here to provide 
             personalized solutions and guide you every step of the way.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+        <div
+              data-aos="fade-left"
+              data-aos-delay="500"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
           <div>
             <h3 className="text-2xl font-bold text-[#002D62] mb-8">Send Us a Message</h3>
-            
-            <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={(e)=>e.preventDefault()}>
+            <div id="contact-form"  className="space-y-6">  
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+            <input type="hidden" name="access_key" value="881b5b74-2a53-4d04-b485-2284ecf313ed"/>
+
                 <input
                   type="text"
                   name="name"
@@ -144,20 +173,21 @@ export default function ContactSection() {
               />
 
               <button
-                type="submit"
+                onClick={handleSubmit}
                 disabled={isSubmitted}
-                className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white py-4 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer disabled:bg-green-500"
+                className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white py-4 rounded-lg font-semibold transition-all whitespace-nowrap cursor-pointer disabled:bg-green-500 duration-1000"
               >
                 {isSubmitted ? 'Message Sent Successfully!' : 'Send Message'}
               </button>
-            </form>
+            </div>
+             </form>
 
-            <div className="mt-8 p-6 bg-[#F8F9FA] rounded-xl">
+            <div className="mt-8 p-6 bg-[#F8F9FA] rounded-xl transform hover:scale-105 duration-1000 transition-all">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-10 h-10 bg-[#D4AF37] rounded-lg flex items-center justify-center">
                   <i className="ri-time-line text-white"></i>
                 </div>
-                <div>
+                <div >
                   <h4 className="font-semibold text-[#002D62]">Quick Response</h4>
                   <p className="text-sm text-gray-600">We respond within 2 hours during business days</p>
                 </div>
@@ -170,7 +200,7 @@ export default function ContactSection() {
             
             <div className="space-y-6 mb-8">
               {offices.map((office, index) => (
-                <div key={index} className="bg-[#F8F9FA] p-6 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300">
+                <div key={index} className="bg-[#F8F9FA] p-6 rounded-xl hover:bg-white hover:shadow-lg transition-all transform hover:scale-105 duration-1000">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h4 className="font-bold text-[#002D62] text-lg">{office.city}, {office.country}</h4>
@@ -199,7 +229,7 @@ export default function ContactSection() {
               ))}
             </div>
 
-            <div className="bg-[#002D62] text-white p-6 rounded-xl">
+            <div className="bg-[#002D62] text-white p-6 rounded-xl transform hover:scale-105 duration-1000">
               <h4 className="font-bold mb-4">24/7 Emergency Support</h4>
               <p className="text-gray-200 text-sm mb-4">
                 For urgent shipment issues or emergency assistance
@@ -212,10 +242,16 @@ export default function ContactSection() {
           </div>
         </div>
 
-        <div className="bg-[#F8F9FA] rounded-3xl p-8 lg:p-12">
+        <div className="bg-[#F8F9FA] rounded-3xl p-8 lg:p-12"
+        data-aos="fade-down" 
+        data-aos-delay="100"
+        >
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-[#002D62] mb-4">Visit Our Main Office</h3>
-            <p className="text-gray-600">Located in the heart of the financial district with easy access to major ports</p>
+            <h3 className="text-2xl font-bold text-[#002D62] mb-4"
+            data-aos="fade-down" data-aos-delay="200">
+              Visit Our Main Office</h3>
+            <p className="text-gray-600" data-aos="fade-up" data-aos-delay="300">
+              Located in the heart of the financial district with easy access to major ports</p>
           </div>
 
           <div className="bg-white rounded-2xl overflow-hidden h-96">

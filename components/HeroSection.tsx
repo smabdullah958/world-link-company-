@@ -19,41 +19,53 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div  id="home">
+      <div   className="relative min-h-screen flex items-center justify-center overflow-hidden pt-10 md:pt-0 pb-5 md:pb-0"
+      data-aos="fade-left"
+      data-aos-duration="500"
+      data-aos-delay="100">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20global%20shipping%20containers%20at%20modern%20international%20port%20with%20cargo%20ships%2C%20cranes%20and%20logistics%20operations%20under%20blue%20sky%2C%20representing%20worldwide%20trade%20and%20export%20business%2C%20industrial%20maritime%20scene%20with%20geometric%20composition%20and%20clean%20professional%20lighting&width=1920&height=1080&seq=hero-bg&orientation=landscape')`
+          backgroundImage: `url('/images/bg_image.jpeg')`
         }}
       />
-      <div className="absolute inset-0 bg-[#002D62]/70"></div>
+      <div className="absolute inset-0 bg-[#002D62]/70 "></div>
       
       <div className="relative z-10 container mx-auto px-6 text-center text-white">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-6">
-            <span className="inline-block px-4 py-2 bg-[#D4AF37]/20 backdrop-blur-sm rounded-full text-[#D4AF37] text-sm font-medium border border-[#D4AF37]/30">
+          <div className="mb-1">
+            <span className="inline-block px-4 py-2 bg-[#D4AF37]/20 backdrop-blur-sm rounded-full text-[#D4AF37] text-xs sm:text-sm font-medium border border-[#D4AF37]/30  mt-12 lg:mt-6">
               Trusted Global Trade Partner Since 1995
             </span>
           </div>
           
-          <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+          <h1 
+              data-aos="fade-down"
+             data-aos-duration="500"
+             data-aos-delay="100"
+          className="text-3xl sm:text-5xl lg:text-7xl font-bold mb-8  leading-tight mt-5 ">
             Connecting Markets,
-            <span className="block text-[#D4AF37]">Bridging Continents</span>
+            <span className="block text-[#D4AF37] ">Bridging Continents</span>
           </h1>
           
-          <p className="text-xl lg:text-2xl mb-12 text-gray-200 max-w-3xl mx-auto leading-relaxed">
+          <p 
+              data-aos="fade-up"
+             data-aos-duration="500"
+             data-aos-delay="200"
+          className="text-xl lg:text-2xl mb-10 text-gray-200 max-w-3xl mx-auto leading-relaxed text-justify">
             WorldLink Exports delivers comprehensive import and export solutions, 
             connecting businesses worldwide with seamless logistics and unmatched expertise.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 ">
             <button
               onClick={() => setShowQuoteForm(true)}
-              className="bg-[#D4AF37] hover:bg-[#B8941F] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer"
+              className="bg-[#D4AF37] hover:bg-[#B8941F] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-1000  transform hover:scale-105 whitespace-nowrap cursor-pointer "
             >
               Request Free Quote
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-[#002D62] px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 whitespace-nowrap cursor-pointer">
+            <button className="border-2 border-white text-white hover:bg-white hover:text-[#002D62] px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-1000 whitespace-nowrap cursor-pointer hover:scale-105">
               Explore Services
             </button>
           </div>
@@ -65,9 +77,9 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-
-      {showQuoteForm && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+</div>
+      { showQuoteForm && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center ">
           <div className="bg-white rounded-xl p-8 max-w-md w-full">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-bold text-[#002D62]">Request Quote</h3>

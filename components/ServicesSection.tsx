@@ -1,6 +1,7 @@
 
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function ServicesSection() {
   const [activeService, setActiveService] = useState(0);
@@ -51,29 +52,40 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section 
+        data-aos="fade-left"
+    data-aos-delay="200"
+    className="py-12  bg-white text-justify" id="services">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-[#D4AF37]/10 text-[#D4AF37] rounded-full text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 bg-[#D4AF37]/10 text-[#D4AF37] rounded-full text-sm font-medium mb-4 ">
             Our Services
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-6">
+          <h2
+             data-aos="fade-up" data-aos-delay="100"
+          className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-6">
             Comprehensive Trade Solutions
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p
+           data-aos="fade-up" data-aos-delay="300"
+          className="text-xl text-gray-600 max-w-3xl mx-auto">
             From initial consultation to final delivery, we provide end-to-end solutions 
             that simplify global trade and ensure your success in international markets.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <div
+            data-aos="fade-down"
+        data-aos-delay="100"
+            className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
             <div
               key={index}
+               
               className={`p-8 rounded-2xl cursor-pointer transition-all duration-300 ${
                 activeService === index
-                  ? 'bg-[#002D62] text-white shadow-2xl transform scale-105'
-                  : 'bg-[#F8F9FA] hover:bg-white hover:shadow-lg'
+                  ? 'bg-[#002D62] text-white shadow-2xl transition-transform scale-105 duration-1000 '
+                  : 'bg-[#F8F9FA] hover:bg-white hover:shadow-lg transition-transform hover:scale-105 hover:duration-1000'
               }`}
               onClick={() => setActiveService(index)}
             >
@@ -110,7 +122,9 @@ export default function ServicesSection() {
           ))}
         </div>
 
-        <div className="bg-[#F8F9FA] rounded-3xl p-8 lg:p-12">
+        <div id="Import_Handling" className="bg-[#F8F9FA] rounded-3xl p-8 lg:p-12" 
+    data-aos="fade-left"
+    data-aos-delay="200" >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl font-bold text-[#002D62] mb-6">
@@ -119,21 +133,23 @@ export default function ServicesSection() {
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 {services[activeService].details}
               </p>
-              <div className="flex space-x-4">
-                <button className="bg-[#D4AF37] hover:bg-[#B8941F] text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
+              <div className="flex  flex-wrap gap-4 ">
+                <button className="bg-[#D4AF37] hover:bg-[#B8941F] w-40 text-white px-6 py-3 rounded-lg font-semibold  whitespace-nowrap cursor-pointer transition-all duration-500 transform hover:scale-105"> 
                   Get Quote
                 </button>
-                <button className="border-2 border-[#002D62] text-[#002D62] hover:bg-[#002D62] hover:text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
+                <button className="border-2 border-[#002D62] text-[#002D62] w-40 hover:bg-[#002D62] hover:text-white px-6 py-3 rounded-lg font-semibold whitespace-nowrap cursor-pointer transition-all duration-1000 transform hover:scale-105">
                   Schedule Call
                 </button>
               </div>
             </div>
             
             <div className="relative">
-              <img
-                src="https://readdy.ai/api/search-image?query=Modern%20international%20logistics%20center%20with%20advanced%20cargo%20handling%20systems%2C%20automated%20warehouse%20operations%2C%20professional%20freight%20management%20technology%2C%20clean%20industrial%20environment%20with%20global%20shipping%20containers%20and%20efficient%20workflow&width=600&height=400&seq=services-detail&orientation=landscape"
+              <Image
+                src="/images/imag4.jpeg"
                 alt="Service Details"
-                className="w-full h-80 object-cover rounded-2xl shadow-lg object-top"
+                width={600}
+                height={400}
+                className=" object-cover rounded-2xl shadow-lg object-top"
               />
               <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-[#D4AF37]/20 rounded-full blur-xl"></div>
             </div>

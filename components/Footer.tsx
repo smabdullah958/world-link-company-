@@ -29,16 +29,17 @@ export default function Footer() {
               Connecting markets and bridging continents through reliable global trade solutions since 1995.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37] rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37] duration-500  rounded-lg flex items-center justify-center transition-all cursor-pointer">
                 <i className="ri-facebook-fill text-lg"></i>
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37] rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37]  rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer">
                 <i className="ri-twitter-fill text-lg"></i>
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37] rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+              <a target="_blank"  href="https://www.linkedin.com/in/usama-bin-mujeeb-957510258/"
+               className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer">
                 <i className="ri-linkedin-fill text-lg"></i>
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37] rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer">
                 <i className="ri-instagram-line text-lg"></i>
               </a>
             </div>
@@ -47,22 +48,22 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
             <div className="space-y-3">
-              <Link href="/about" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">About Us</Link>
-              <Link href="/services" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Services</Link>
-              <Link href="/industries" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Industries</Link>
-              <Link href="/careers" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Careers</Link>
-              <Link href="/news" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">News</Link>
+              <Link href="#about" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">About Us</Link>
+              <Link href="#services" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Services</Link>
+              <Link href="#industries" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Industries</Link>
+              <Link href="#careers" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Careers</Link>
+              <Link href="#news" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">News</Link>
             </div>
           </div>
 
           <div>
             <h3 className="text-xl font-semibold mb-6">Services</h3>
             <div className="space-y-3">
-              <a href="#" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Import Handling</a>
-              <a href="#" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Export Compliance</a>
-              <a href="#" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Global Logistics</a>
-              <a href="#" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Customs Clearance</a>
-              <a href="#" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Warehousing</a>
+              <a href="#Import_Handling" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Import Handling</a>
+              <a href="#about" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Export Compliance</a>
+              <a href="#services" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Global Logistics</a>
+              <a href="#services" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Customs Clearance</a>
+              <a href="#services" className="block text-gray-300 hover:text-[#D4AF37] transition-colors cursor-pointer">Warehousing</a>
             </div>
           </div>
 
@@ -80,7 +81,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white px-4 py-3 rounded-lg transition-colors whitespace-nowrap cursor-pointer"
+                className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white px-4 py-3 rounded-lg transition-all duration-1000 whitespace-nowrap cursor-pointer"
               >
                 {isSubscribed ? 'Subscribed!' : 'Subscribe'}
               </button>
@@ -88,10 +89,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/20 mt-12 pt-8">
-          <div className="flex flex-col lg:flex-row justify-between items-center">
-            <div className="flex flex-wrap items-center space-x-6 mb-4 lg:mb-0">
-              <div className="flex items-center space-x-2">
+        <div className="border-t border-white/20 mt-12 pt-8  ">
+          <div className="flex flex-col lg:flex-row justify-between items-center ">
+            <div className="flex flex-wrap items-center space-x-6 mb-4 lg:mb-0 gap-6">
+              <div className="flex items-center space-x-2 pl-7">
                 <div className="w-8 h-8 bg-white/10 rounded flex items-center justify-center">
                   <i className="ri-shield-check-line text-sm"></i>
                 </div>

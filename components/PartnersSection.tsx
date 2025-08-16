@@ -1,9 +1,20 @@
 
 'use client';
 import { useState, useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import CountUp from 'react-countup';
+import { useInView } from "react-intersection-observer";
+
 
 export default function PartnersSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+    // Observer hooks for each stat
+  const { ref: countriesRef, inView: Partners } = useInView({ triggerOnce: true });
+  const { ref: portsRef, inView: Clients } = useInView({ triggerOnce: true });
+  const { ref: warehousesRef, inView: Retention } = useInView({ triggerOnce: true });
+
 
   const partners = [
     { name: 'Global Logistics Corp', category: 'Logistics Partner' },
@@ -33,36 +44,46 @@ export default function PartnersSection() {
   }, [partners.length]);
 
   return (
-    <section className="py-20 bg-[#F8F9FA]">
+    <section
+       data-aos="fade-left"
+        data-aos-delay="100"
+    className="py-14 bg-[#F8F9FA]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-[#002D62]/10 text-[#002D62] rounded-full text-sm font-medium mb-4">
             Our Network
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-6">
+          <h2
+             data-aos="fade-down"
+        data-aos-delay="200"
+          className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-6 text-justify">
             Trusted Partners & Valued Clients
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p
+             data-aos="fade-up"
+        data-aos-delay="300"
+          className="text-xl text-gray-600 max-w-3xl mx-auto text-justify">
             We collaborate with industry leaders and serve Fortune 500 companies, 
             building lasting relationships that drive mutual success in global trade.
           </p>
         </div>
 
         <div className="mb-16">
-          <div className="bg-white rounded-3xl p-8 lg:p-12">
+          <div className="bg-white rounded-3xl p-8 lg:p-10">
             <div className="flex items-center justify-between mb-8">
               <h3 className="text-2xl font-bold text-[#002D62]">Strategic Partners</h3>
               <div className="flex space-x-2">
                 <button
                   onClick={() => setCurrentSlide(Math.max(0, currentSlide - 1))}
-                  className="w-10 h-10 bg-[#F8F9FA] hover:bg-[#002D62] hover:text-white rounded-lg flex items-center justify-center transition-colors cursor-pointer"
+                  className="w-10 h-10 bg-[#F8F9FA] hover:bg-[#002D62] hover:text-white rounded-lg flex items-center justify-center transition-colors cursor-pointer duration-1000"
                   disabled={currentSlide === 0}
                 >
                   <i className="ri-arrow-left-s-line"></i>
                 </button>
                 <button
                   onClick={() => setCurrentSlide(Math.min(Math.ceil(partners.length / 4) - 1, currentSlide + 1))}
-                  className="w-10 h-10 bg-[#F8F9FA] hover:bg-[#002D62] hover:text-white rounded-lg flex items-center justify-center transition-colors cursor-pointer"
+                  className="w-10 h-10 bg-[#F8F9FA] hover:bg-[#002D62] hover:text-white rounded-lg flex items-center justify-center transition-colors cursor-pointer
+                  duration-1000"
                   disabled={currentSlide === Math.ceil(partners.length / 4) - 1}
                 >
                   <i className="ri-arrow-right-s-line"></i>
@@ -70,9 +91,12 @@ export default function PartnersSection() {
               </div>
             </div>
 
-            <div className="overflow-hidden">
+            <div
+            data-aos="fade-up"
+            data-aos-delay="400"
+            className="overflow-hidden">
               <div
-                className="flex transition-transform duration-500 ease-in-out"
+                className="flex transition-transform duration-1000 "
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
                 {Array.from({ length: Math.ceil(partners.length / 4) }).map((_, slideIndex) => (
@@ -81,9 +105,8 @@ export default function PartnersSection() {
                       {partners.slice(slideIndex * 4, slideIndex * 4 + 4).map((partner, index) => (
                         <div
                           key={index}
-                          className="bg-[#F8F9FA] hover:bg-white p-6 rounded-xl transition-all duration-300 hover:shadow-lg border-2 border-transparent hover:border-[#D4AF37]/20"
-                        >
-                          <div className="w-16 h-16 bg-[#002D62]/10 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                          className="bg-[#F8F9FA] hover:bg-white p-6 rounded-xl transition-all duration-1000 hover:shadow-lg border-2 border-transparent hover:border-[#D4AF37]/20 transform  hover:scale-110 ">
+                          <div className="w-16 h-16 bg-[#002D62]/10 rounded-xl flex items-center justify-center mb-4 mx-auto ">
                             <i className="ri-building-line text-2xl text-[#002D62]"></i>
                           </div>
                           <h4 className="font-bold text-[#002D62] mb-2 text-center">{partner.name}</h4>
@@ -110,16 +133,27 @@ export default function PartnersSection() {
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl p-8 lg:p-12">
-          <h3 className="text-2xl font-bold text-[#002D62] mb-8 text-center">Valued Clients</h3>
+        <div 
+           data-aos="fade-right"
+        data-aos-delay="200"
+        className="bg-white rounded-3xl p-8 lg:p-12">
+          <h3 
+             data-aos="fade-down"
+        data-aos-delay="300"
+          className="text-2xl font-bold text-[#002D62] mb-8 text-center">Valued Clients</h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div
+            data-aos="fade-up"
+             data-aos-delay="400"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12  overflow-visible">
             {clients.map((client, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-[#F8F9FA] to-white p-6 rounded-xl border-l-4 border-[#D4AF37] hover:shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-center justify-between mb-4">
+                className="bg-gradient-to-br from-[#F8F9FA] to-white p-6 rounded-xl border-l-4 border-[#D4AF37] hover:shadow-lg transition-all transform duration-1000 hover:scale-110">
+
+                <div
+                  
+                className="flex items-center justify-between mb-4 ">
                   <h4 className="font-bold text-[#002D62]">{client.name}</h4>
                   <div className="w-8 h-8 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center">
                     <i className="ri-star-fill text-[#D4AF37] text-sm"></i>
@@ -142,24 +176,35 @@ export default function PartnersSection() {
           <div className="text-center">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#002D62] mb-2">200+</div>
+
+               <div ref={countriesRef} className="text-3xl font-bold text-[#002D62] mb-2">
+              {Partners && <CountUp start={0} end={200} duration={3} suffix="+" />}
+            </div>
                 <div className="text-gray-600">Active Partners</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#D4AF37] mb-2">500+</div>
+                
+                 <div ref={portsRef} className="text-3xl font-bold text-[#002D62] mb-2">
+              {Clients && <CountUp start={0} end={500} duration={3} suffix="+" />}
+            </div>
+
                 <div className="text-gray-600">Global Clients</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#002D62] mb-2">98%</div>
+          
+          <div ref={warehousesRef} className="text-3xl font-bold text-[#002D62] mb-2">
+              {Retention && <CountUp start={0} end={98} duration={3} suffix="%" />}
+            </div>
+
                 <div className="text-gray-600">Client Retention</div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <button className="bg-[#D4AF37] hover:bg-[#B8941F] text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
+              <button className="bg-[#D4AF37] hover:bg-[#B8941F] text-white px-8 py-3 rounded-lg font-semibold transition-all whitespace-nowrap cursor-pointer transform duration-1000 hover:scale-105">
                 Partner With Us
               </button>
-              <button className="border-2 border-[#002D62] text-[#002D62] hover:bg-[#002D62] hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
+              <button className="border-2 border-[#002D62] text-[#002D62] hover:bg-[#002D62] hover:text-white px-8 py-3 rounded-lg font-semibold transition-all whitespace-nowrap cursor-pointer transform duration-1000 hover:scale-105">
                 View Case Studies
               </button>
             </div>
