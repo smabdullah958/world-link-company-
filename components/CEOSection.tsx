@@ -6,7 +6,7 @@ export default function CEOSection() {
     <section
     data-aos="fade-left"
     data-aos-delay="200"
-    className="p-10  bg-[#F8F9FA] text-justify">
+    className="p-10 px-0  bg-[#f0f0ea] text-left">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -19,7 +19,7 @@ export default function CEOSection() {
                   alt="CEO Portrait"
                   width={100}
                   height={100}
-                  className="w-full max-w-md mx-auto rounded-3xl shadow-2xl object-cover object-top
+                  className="w-full max-w-md  rounded-3xl shadow-2xl object-cover object-top
                   transform transition-transform duration-700 hover:scale-105"
                 />
               </div>
@@ -29,34 +29,34 @@ export default function CEOSection() {
 
             <div>
               <div className="mb-6">
-                <span className="inline-block px-4 py-2 bg-[#002D62]/10 text-[#002D62] rounded-full text-sm font-medium">
+                <span className="inline-block px-4 py-2 bg-[#ede7dc] text-[#002D62] rounded-full text-sm font-bold">
                   Leadership Message
                 </span>
               </div>
               
               <h2
             data-aos="fade-up" data-aos-delay="100"
-              className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-6">
+              className="text-3xl  lg:text-5xl font-bold text-[#002D62]  leading-relaxed text-left mb-4 ">
                 Meet Our CEO
               </h2>
               
               <div className="mb-8">
                 <h3 
                 data-aos="fade-up" data-aos-delay="200"
-                className="text-2xl font-bold text-[#D4AF37] mb-2">USAMA BIN MUJEEB</h3>
+                className="text-2xl font-semibold text-[#cfba75] mb-2 text-left">USAMA BIN MUJEEB</h3>
                 <p 
                 data-aos="fade-up" data-aos-delay="300"
-                className="text-lg text-gray-600 mb-6">Chief Executive Officer & Founder</p>
+                className="text-md text-gray-600 mb-6 text-left">Chief Executive Officer & Founder</p>
                 
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="flex flex-wrap items-center space-x-2">
-                    <div className="w-8 h-8 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center">
+                <div className="flex  items-center space-x-4 mb-6">
+                  <div className="flex  items-center space-x-2">
+                    <div className="w-8 h-8 bg-[#e7dbb6] rounded-lg flex items-center justify-center">
                       <i className="ri-graduation-cap-line text-[#D4AF37] text-sm"></i>
                     </div>
                     <span className="text-sm text-gray-600">MBA International Business</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center">
+                    <div className="w-8 h-8 bg-[#e7dbb6] rounded-lg flex items-center justify-center">
                       <i className="ri-time-line text-[#D4AF37] text-sm"></i>
                     </div>
                     <span className="text-sm text-gray-600">30+ Years Experience</span>
@@ -64,18 +64,21 @@ export default function CEOSection() {
                 </div>
               </div>
 
-              <blockquote className="relative mb-8">
+              <blockquote className="relative mb-8 pr-4">
                 <div className="absolute -top-4 -left-4 w-12 h-12 text-[#D4AF37]/20">
                   <i className="ri-double-quotes-l text-4xl"></i>
                 </div>
                 <p 
                 data-aos="fade-right" data-aos-delay="400" 
-                className="text-lg text-gray-700 italic leading-relaxed pl-8 text-justify">
-                  "In today's interconnected world, success in global trade isn't just about moving goods – 
+                className="text-lg text-gray-700 italic leading-relaxed pl-5 text-left">
+                In today's interconnected world, success in global trade isn't just about moving goods – 
                   it's about building bridges between cultures, economies, and opportunities. At WorldLink Exports, 
                   we don't just facilitate transactions; we create lasting partnerships that drive mutual growth 
-                  and prosperity across continents."
+                  and prosperity across continents.
                 </p>
+                <div className="absolute -bottom-4 -right-4 w-12 h-12 text-[#D4AF37]/20">
+           <i className="ri-double-quotes-r text-4xl"></i>
+              </div>
               </blockquote>
 
               <div className="space-y-4">
@@ -94,10 +97,10 @@ export default function CEOSection() {
 
               <div className="flex space-x-4 mt-8 flex-wrap">
                 <a target="_blank" href="https://www.linkedin.com/in/usama-bin-mujeeb-957510258/"
-                 className="w-10 h-10 bg-[#002D62] hover:bg-[#D4AF37] rounded-lg flex items-center justify-center transition-colors cursor-pointer hover:transition-all hover:duration-500">
+                 className="w-10 h-10 bg-[#e5bd44] hover:bg-[#D4AF37] rounded-lg flex items-center justify-center transition-colors cursor-pointer hover:transition-all hover:duration-700">
                   <i className="ri-linkedin-fill text-white text-lg  "></i>
                 </a>
-                <a href="#" className="w-10 h-10 bg-[#002D62] hover:bg-[#D4AF37] rounded-lg flex items-center justify-center cursor-pointer hover:transition-all hover:duration-500">
+                <a href="#" className="w-10 h-10 bg-[#e5bd44] hover:bg-[#D4AF37] rounded-lg flex items-center justify-center cursor-pointer hover:transition-all hover:duration-700">
                   <i className="ri-twitter-fill text-white text-lg"></i>
                 </a>
                 <div className="break-all space-x-2 pt-2 text-sm text-gray-600 ">

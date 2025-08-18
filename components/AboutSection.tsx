@@ -23,19 +23,19 @@ export default function AboutSection() {
 
 
   return (
-    <section className="py-16 bg-white text-justify" id="about" data-aos="fade-left">
+    <section className="py-10 bg-[#e1ded8] text-justify" id="about" data-aos="fade-left">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="mb-6">
-              <span className="inline-block px-4 py-2 bg-[#D4AF37]/10 text-[#D4AF37] rounded-full text-sm font-medium">
+              <span className="inline-block px-4 py-2 bg-[#80dddf] text-[#ffffff] rounded-full text-sm font-bold">
                 About WorldLink Exports
               </span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-8 leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-8 leading-tight text-left">
               Global Trade Excellence Since 1995
             </h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed text-justify">
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed text-left">
               For nearly three decades, WorldLink Exports has been at the forefront of international trade, 
               connecting businesses across continents with reliable, efficient, and innovative logistics solutions. 
               We've facilitated over $2.5 billion in global trade transactions.
@@ -43,12 +43,12 @@ export default function AboutSection() {
 
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-[#0d5c75] rounded-lg flex items-center justify-center flex-shrink-0">
                   <i className="ri-eye-line text-[#D4AF37] text-xl "  ></i>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-[#002D62] mb-2">Our Vision</h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 text-left">
                     To become the world's most trusted bridge in global trade, enabling seamless 
                     commerce between nations and fostering economic growth worldwide.
                   </p>
@@ -56,12 +56,12 @@ export default function AboutSection() {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <i className="ri-target-line text-[#D4AF37] text-xl"></i>
+                <div className="w-12 h-12 bg-[#0d5c75] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i className="ri-rocket-line text-[#D4AF37] text-xl"></i>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-[#002D62] mb-2">Our Mission</h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 text-left ">
                     To deliver exceptional import-export solutions through innovative technology, 
                     expert knowledge, and unwavering commitment to client success.
                   </p>
@@ -69,12 +69,12 @@ export default function AboutSection() {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-[#0d5c75] rounded-lg flex items-center justify-center flex-shrink-0">
                   <i className="ri-award-line text-[#D4AF37] text-xl"></i>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-[#002D62] mb-2">Our Experience</h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 text-left">
                     With operations in 45+ countries and partnerships with leading global carriers, 
                     we bring unmatched expertise to every trade transaction.
                   </p>
@@ -104,7 +104,7 @@ export default function AboutSection() {
                 <div className="bg-[#002D62] text-white p-6 rounded-xl transform transition-transform duration-500 hover:scale-105">
                   <div        
                     ref={tradeRef} 
-                   className="text-3xl font-bold text-[#D4AF37] mb-2 ">
+                   className="text-3xl font-bold text-white mb-2 ">
                     {tradeVisible && (
 
                           <CountUp
@@ -120,7 +120,7 @@ export default function AboutSection() {
               </div>
               <div className="space-y-6 pt-12  ">
                 <div 
-                className="bg-[#D4AF37] text-white p-6 rounded-xl transform transition-transform duration-500 hover:scale-105">
+                className="bg-[#002D62] text-white p-6 rounded-xl transform transition-transform duration-500 hover:scale-105 ">
                   <div
                   ref={countriesRef}
                   className="text-3xl font-bold mb-2 ">

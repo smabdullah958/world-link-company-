@@ -14,9 +14,14 @@ export default function ContactSection() {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  let Fields=!formData.name||!formData.email||!formData.company||!formData.message||!formData.phone||!formData.service
 
  const handleSubmit = async () => {
-  try {
+  if(Fields){
+     setIsSubmitted(false)
+     console.log("all field are mandatory") 
+    }
+  try {  
     const response = await axios.post(
     "https://api.web3forms.com/submit",
       formData,
@@ -28,7 +33,7 @@ export default function ContactSection() {
       setTimeout(() => {
         setIsSubmitted(false);
         setFormData({access_key:"881b5b74-2a53-4d04-b485-2284ecf313ed", name: '', email: '', company: '', phone: '', service: '', message: '' });
-      }, 3000);
+      }, 1000);
     }
     
   } catch (error) {
@@ -67,22 +72,22 @@ export default function ContactSection() {
     <section 
     data-aos="fade-right text-justify"
      data-aos-delay="100"
-    className="py-12 bg-white" id="contact">
+    className="py-12 bg-[#cbdff7]" id="contact">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-[#D4AF37]/10 text-[#D4AF37] rounded-full text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 bg-[#9cc4f5] text-[#002D62] rounded-full text-sm font-medium mb-4">
             Get In Touch
           </span> 
           <h2 
               data-aos="fade-down"
               data-aos-delay="200"
-          className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-6 text-justify">
+          className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-6 text-center">
             Let's Start Your Global Trade Journey
           </h2>
           <p 
               data-aos="fade-up"
               data-aos-delay="300"
-          className="text-xl text-gray-600 max-w-3xl mx-auto text-justify">
+          className="text-xl text-gray-600 max-w-3xl mx-auto text-left">
             Ready to expand your business globally? Our expert team is here to provide 
             personalized solutions and guide you every step of the way.
           </p>
@@ -106,7 +111,7 @@ export default function ContactSection() {
                   placeholder="Your Name *"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D4AF37] text-gray-800"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D4AF37] text-gray-800 hover:bg-[#cdd9e6] duration-500 transition-all hover:border-black hover:border-2"
                   required
                 />
                 <input
@@ -115,7 +120,7 @@ export default function ContactSection() {
                   placeholder="Email Address *"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D4AF37] text-gray-800"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D4AF37] text-gray-800 hover:bg-[#cdd9e6] duration-500 transition-all hover:border-black hover:border-2"
                   required
                 />
               </div>
@@ -127,7 +132,7 @@ export default function ContactSection() {
                   placeholder="Company Name *"
                   value={formData.company}
                   onChange={(e) => setFormData({...formData, company: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D4AF37] text-gray-800"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D4AF37] text-gray-800 hover:bg-[#cdd9e6] duration-500 transition-all hover:border-black hover:border-2"
                   required
                 />
                 <input
@@ -136,7 +141,7 @@ export default function ContactSection() {
                   placeholder="Phone Number"
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D4AF37] text-gray-800"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D4AF37] text-gray-800 hover:bg-[#cdd9e6] duration-500 transition-all hover:border-black hover:border-2"
                 />
               </div>
 
@@ -145,7 +150,7 @@ export default function ContactSection() {
                   name="service"
                   value={formData.service}
                   onChange={(e) => setFormData({...formData, service: e.target.value})}
-                  className="w-full px-4 py-3 pr-8 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D4AF37] text-gray-800 appearance-none"
+                  className="w-full px-4 py-3 pr-8 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D4AF37] text-gray-800 appearance-none hover:bg-[#cdd9e6] duration-500 transition-all hover:border-black hover:border-2"
                   required
                 >
                   <option value="">Select Service of Interest *</option>
@@ -166,7 +171,7 @@ export default function ContactSection() {
                 placeholder="Tell us about your trade requirements..."
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D4AF37] text-gray-800 resize-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D4AF37] text-gray-800 resize-none hover:bg-[#cdd9e6] duration-500 transition-all hover:border-black hover:border-2"
                 rows={5}
                 maxLength={500}
                 required
@@ -174,10 +179,10 @@ export default function ContactSection() {
 
               <button
                 onClick={handleSubmit}
-                disabled={isSubmitted}
-                className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white py-4 rounded-lg font-semibold transition-all whitespace-nowrap cursor-pointer disabled:bg-green-500 duration-1000"
+                disabled={Fields}
+                className={`w-full bg-[#4895e8] hover:bg-[#1179e8] text-white py-4 rounded-lg font-semibold transition-all whitespace-nowrap  disabled:bg-[#2678d0] duration-1000 ${Fields?"opacity-20 cursor-not-allowed":"opacity-100"}`}
               >
-                {isSubmitted ? 'Message Sent Successfully!' : 'Send Message'}
+                {isSubmitted ? 'Message Sent Successfully!' : <p className='text-black'>Send Message</p>}
               </button>
             </div>
              </form>
@@ -242,7 +247,7 @@ export default function ContactSection() {
           </div>
         </div>
 
-        <div className="bg-[#F8F9FA] rounded-3xl p-8 lg:p-12"
+        <div className="bg-[#a6c8ea] rounded-3xl p-8 lg:p-12"
         data-aos="fade-down" 
         data-aos-delay="100"
         >

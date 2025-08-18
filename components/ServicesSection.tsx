@@ -8,14 +8,14 @@ export default function ServicesSection() {
 
   const services = [
     {
-      icon: 'ri-download-line',
+      icon: 'ri-global-line',
       title: 'Import Handling',
       description: 'Comprehensive import management from documentation to delivery',
       details: 'Complete import solutions including vendor sourcing, quality control, documentation management, and customs clearance. We ensure your imports meet all regulatory requirements while optimizing costs and delivery times.',
       features: ['Vendor Sourcing', 'Quality Control', 'Documentation', 'Regulatory Compliance']
     },
     {
-      icon: 'ri-upload-line',
+      icon: 'ri-send-plane-line',
       title: 'Export Compliance',
       description: 'Ensure seamless export operations with full regulatory compliance',
       details: 'Navigate complex export regulations with our expert compliance team. We handle all export documentation, licensing, and regulatory requirements to ensure your products reach international markets smoothly.',
@@ -29,21 +29,21 @@ export default function ServicesSection() {
       features: ['Multi-modal Transport', 'Route Optimization', 'Cargo Management', 'Real-time Tracking']
     },
     {
-      icon: 'ri-file-shield-line',
+      icon: 'ri-file-shield-2-line',
       title: 'Documentation',
       description: 'Professional handling of all trade documentation requirements',
       details: 'Expert management of complex trade documentation including certificates of origin, commercial invoices, packing lists, and specialized industry certifications. We ensure accuracy and compliance.',
       features: ['Commercial Invoices', 'Certificates of Origin', 'Packing Lists', 'Industry Certifications']
     },
     {
-      icon: 'ri-government-line',
+      icon: 'ri-shield-check-line',
       title: 'Customs Clearance',
       description: 'Fast and efficient customs clearance in all major ports',
       details: 'Streamlined customs clearance services with our licensed customs brokers. We handle all customs procedures, duty optimization, and ensure rapid clearance to minimize delays.',
       features: ['Licensed Brokers', 'Duty Optimization', 'Rapid Processing', 'Port Networks']
     },
     {
-      icon: 'ri-building-line',
+      icon: 'ri-home-8-line',
       title: 'Warehousing',
       description: 'Secure storage and distribution facilities worldwide',
       details: 'Strategic warehousing solutions across key global locations. Our facilities offer secure storage, inventory management, cross-docking, and distribution services with advanced tracking systems.',
@@ -55,20 +55,20 @@ export default function ServicesSection() {
     <section 
         data-aos="fade-left"
     data-aos-delay="200"
-    className="py-12  bg-white text-justify" id="services">
+    className="py-10  bg-[#ece8dc] text-justify" id="services">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-[#D4AF37]/10 text-[#D4AF37] rounded-full text-sm font-medium mb-4 ">
+          <span className="inline-block px-4 py-2 bg-[#e6e1cf] text-[#002D62] rounded-full text-sm font-medium mb-4 ">
             Our Services
           </span>
           <h2
              data-aos="fade-up" data-aos-delay="100"
-          className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-6">
+          className="text-4xl lg:text-5xl font-bold text-[#002D62] mb-6  text-center">
             Comprehensive Trade Solutions
           </h2>
           <p
            data-aos="fade-up" data-aos-delay="300"
-          className="text-xl text-gray-600 max-w-3xl mx-auto">
+          className="text-xl text-gray-600 max-w-3xl mx-auto text-left">
             From initial consultation to final delivery, we provide end-to-end solutions 
             that simplify global trade and ensure your success in international markets.
           </p>
@@ -77,25 +77,29 @@ export default function ServicesSection() {
             <div
             data-aos="fade-down"
         data-aos-delay="100"
-            className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            className="grid grid-cols-1 lg:grid-cols-3 gap-8 ">
           {services.map((service, index) => (
             <div
               key={index}
                
               className={`p-8 rounded-2xl cursor-pointer transition-all duration-300 ${
                 activeService === index
-                  ? 'bg-[#002D62] text-white shadow-2xl transition-transform scale-105 duration-1000 '
-                  : 'bg-[#F8F9FA] hover:bg-white hover:shadow-lg transition-transform hover:scale-105 hover:duration-1000'
+                  ? 'bg-[#002D62] text-white shadow-2xl transition-transform scale-x-105 duration-1000 '
+                  : 'bg-[#d5dadf] hover:bg-[#d4dde7] hover:shadow-lg transition-transform hover:scale-x-105 hover:duration-1000'
               }`}
               onClick={() => setActiveService(index)}
             >
-              <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-6 ${
-                activeService === index ? 'bg-[#D4AF37]' : 'bg-[#002D62]'
+              <div className='flex items-center justify-between mb-2 sm:mb-0  sm:justify-around '>
+
+               <h3 className="text-xl sm:text-2xl font-bold  sm:w-52 break-words w-[65%] gap-x-2  ">{service.title}</h3>
+
+            <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-6  ${
+                activeService === index ? 'bg-[#64c5d2]' : 'bg-[#819fc2]'
               }`}>
-                <i className={`${service.icon} text-2xl text-white`}></i>
+                
+                <i className={`${service.icon} text-2xl text-black`}></i>
               </div>
-              
-              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+              </div>
               <p className={`mb-6 ${
                 activeService === index ? 'text-gray-200' : 'text-gray-600'
               }`}>
@@ -113,20 +117,32 @@ export default function ServicesSection() {
                 ))}
               </div>
 
-              {activeService === index && (
-                <button className="mt-6 bg-[#D4AF37] hover:bg-[#B8941F] text-white px-6 py-2 rounded-lg transition-colors whitespace-nowrap cursor-pointer">
+              {/* {activeService === index && (
+                <button className="mt-6 bg-[#c29f2e] hover:bg-[#9c7906] text-white px-6 py-2 rounded-lg transition-all whitespace-nowrap cursor-pointer duration-1000 border-2 border-white ">
                   Learn More
                 </button>
-              )}
+              )} */}
             </div>
           ))}
         </div>
 
-        <div id="Import_Handling" className="bg-[#F8F9FA] rounded-3xl p-8 lg:p-12" 
+        {/* <div id="Import_Handling" className="bg-[#aec4da] rounded-3xl p-8 lg:p-12" 
     data-aos="fade-left"
     data-aos-delay="200" >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-12 items-center">
+          
+            <div className="relative order-1 lg:order-2">
+              <Image
+                src="/images/imag6.jpeg"
+                alt="Service Details"
+                width={600}
+                height={400}
+                className=" object-cover rounded-2xl shadow-lg object-top"  />
+              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-[#D4AF37]/20 rounded-full blur-xl">
+              </div>
+            </div>
+
+            <div className='order-2 lg:order-1'>
               <h3 className="text-3xl font-bold text-[#002D62] mb-6">
                 {services[activeService].title}
               </h3>
@@ -143,19 +159,10 @@ export default function ServicesSection() {
               </div>
             </div>
             
-            <div className="relative">
-              <Image
-                src="/images/imag4.jpeg"
-                alt="Service Details"
-                width={600}
-                height={400}
-                className=" object-cover rounded-2xl shadow-lg object-top"
-              />
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-[#D4AF37]/20 rounded-full blur-xl"></div>
-            </div>
+            
           </div>
-        </div>
-      </div>
+        </div>*/}
+      </div> 
     </section>
   );
 }

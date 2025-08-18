@@ -1,22 +1,55 @@
 
 'use client';
+import axios from 'axios';
 import { useState } from 'react';
 
 export default function HeroSection() {
-  const [showQuoteForm, setShowQuoteForm] = useState(false);
+   const [showQuoteForm, setShowQuoteForm] = useState(false);
+  
   const [formData, setFormData] = useState({
+    access_key:"881b5b74-2a53-4d04-b485-2284ecf313ed",
     name: '',
     email: '',
     company: '',
     service: '',
     message: ''
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  let Fields=!formData.name||!formData.email||!formData.company||!formData.message
+  ||!formData.service
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setShowQuoteForm(false);
-    setFormData({ name: '', email: '', company: '', service: '', message: '' });
-  };
+  let clearForm=()=>{
+  setShowQuoteForm(false)
+      setFormData({access_key:"881b5b74-2a53-4d04-b485-2284ecf313ed", name: '', email: '',
+         company:'',service: '', message: '' });
+  }
+
+ const handleSubmit = async () => {
+  if(Fields){
+     setIsSubmitted(false)
+     console.log("all field are mandatory") 
+    }
+  try {  
+    const response = await axios.post(
+    "https://api.web3forms.com/submit",
+      formData,
+        );
+
+    if (response.data.success) {
+      console.log('Form submitted successfully');
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setShowQuoteForm(false)
+        setFormData({access_key:"881b5b74-2a53-4d04-b485-2284ecf313ed", name: '', email: '', company: '', service: '', message: '' });
+      }, 1000);
+    }
+    
+  } catch (error) {
+    console.error('Error submitting form', error);
+  }
+};
+
 
   return (
     <div  id="home">
@@ -35,7 +68,7 @@ export default function HeroSection() {
       <div className="relative z-10 container mx-auto px-6 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <div className="mb-1">
-            <span className="inline-block px-4 py-2 bg-[#D4AF37]/20 backdrop-blur-sm rounded-full text-[#D4AF37] text-xs sm:text-sm font-medium border border-[#D4AF37]/30  mt-12 lg:mt-6">
+            <span className="inline-block px-4 py-2 bg-[#092147]/20 backdrop-blur-sm rounded-full text-[#deca87]  text-xs sm:text-sm border border-[#D4AF37]/30  mt-12 lg:mt-8">
               Trusted Global Trade Partner Since 1995
             </span>
           </div>
@@ -46,14 +79,14 @@ export default function HeroSection() {
              data-aos-delay="100"
           className="text-3xl sm:text-5xl lg:text-7xl font-bold mb-8  leading-tight mt-5 ">
             Connecting Markets,
-            <span className="block text-[#D4AF37] ">Bridging Continents</span>
+            <span className="block text-[#deca87] ">Bridging Continents</span>
           </h1>
           
           <p 
               data-aos="fade-up"
              data-aos-duration="500"
              data-aos-delay="200"
-          className="text-xl lg:text-2xl mb-10 text-gray-200 max-w-3xl mx-auto leading-relaxed text-justify">
+          className="text-xl lg:text-2xl mb-10 text-gray-200 max-w-3xl mx-auto leading-relaxed text-left sm:text-center">
             WorldLink Exports delivers comprehensive import and export solutions, 
             connecting businesses worldwide with seamless logistics and unmatched expertise.
           </p>
@@ -61,11 +94,11 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 ">
             <button
               onClick={() => setShowQuoteForm(true)}
-              className="bg-[#D4AF37] hover:bg-[#B8941F] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-1000  transform hover:scale-105 whitespace-nowrap cursor-pointer "
+              className="bg-[#199fb1] hover:bg-[#0d5c75] border-white border-2 hover:font-bold text-white px-5 py-[18px] rounded-lg text-lg font-semibold transition-all duration-1000  transform hover:scale-105 whitespace-nowrap cursor-pointer"
             >
               Request Free Quote
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-[#002D62] px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-1000 whitespace-nowrap cursor-pointer hover:scale-105">
+            <button className="border-2 bg-[#199fb1]  text-white hover:bg-[#199fce] hover:text-[#002D62] px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-1000 whitespace-nowrap cursor-pointer hover:scale-105">
               Explore Services
             </button>
           </div>
@@ -80,17 +113,21 @@ export default function HeroSection() {
 </div>
       { showQuoteForm && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center ">
-          <div className="bg-white rounded-xl p-8 max-w-md w-full">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-bold text-[#002D62]">Request Quote</h3>
+          <div className="bg-white rounded-xl p-5 max-w-md w-full">
+            <div className="flex items-center justify-between ">
+              <h3 className="text-2xl font-bold text-[#002D62] mt-3  sm:mt-0">Request Quote</h3>
               <button
-                onClick={() => setShowQuoteForm(false)}
-                className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 cursor-pointer"
+                onClick={clearForm}
+                className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 cursor-pointer mt-3  sm:mt-0"
               >
                 <i className="ri-close-line text-xl"></i>
               </button>
             </div>
-            <form onSubmit={handleSubmit} className="space-y-4">
+             <form onSubmit={(e)=>e.preventDefault()} className="space-y-4">
+              
+              <input type="hidden" name="access_key" value="881b5b74-2a53-4d04-b485-2284ecf313ed"/>
+
+
               <input
                 type="text"
                 placeholder="Your Name"
@@ -141,14 +178,17 @@ export default function HeroSection() {
                 rows={3}
                 maxLength={500}
               />
-              <button
-                type="submit"
-                className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
+                   <button
+                onClick={handleSubmit}
+                disabled={Fields}
+                className={`w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white py-4 rounded-lg font-semibold transition-all whitespace-nowrap cursor-pointer  duration-1000 ${Fields?"opacity-20 cursor-not-allowed":"opacity-100"}`}
               >
-                Send Quote Request
+                {isSubmitted ? 'Message Sent Successfully!' : 'Send Message'}
               </button>
-            </form>
-          </div>
+
+            </form> 
+            
+                     </div>
         </div>
       )}
     </div>
