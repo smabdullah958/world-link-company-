@@ -76,9 +76,9 @@ export default function Header() {
               <Link href="#services" onClick={(e) => handleSmoothScroll(e, '#services')} className="text-black hover:font-bold transition-all duration-500 cursor-pointer">Services</Link>
               <Link href="#industries" onClick={(e) => handleSmoothScroll(e, '#industries')} className="text-black hover:font-bold transition-all duration-500 cursor-pointer">Industries</Link>
               <Link href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact')} className="text-black hover:font-bold transition-all duration-500 cursor-pointer ">Contact</Link>
-              <button className="bg-[#D4AF37] text-white px-6 py-2 rounded-lg hover:bg-[#B8941F] transition-colors duration-500 whitespace-nowrap cursor-pointer self-start">
+              {/* <button className="bg-[#D4AF37] text-white px-6 py-2 rounded-lg hover:bg-[#B8941F] transition-colors duration-500 whitespace-nowrap cursor-pointer self-start">
                 Request Quote
-              </button>
+              </button> */}
             </nav>
           </div>
         )}

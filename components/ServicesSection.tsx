@@ -91,13 +91,13 @@ export default function ServicesSection() {
             >
               <div className='flex items-center justify-between mb-2 sm:mb-0  sm:justify-around '>
 
-               <h3 className="text-xl sm:text-2xl font-bold  sm:w-52 break-words w-[65%] gap-x-2  ">{service.title}</h3>
+               <h3 className="text-xl sm:text-2xl font-bold  sm:w-52 break-words w-[80%] gap-x-2  ">{service.title}</h3>
 
-            <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-6  ${
+            <div className={`size-7 rounded-xl flex items-center justify-center mb-4  ${
                 activeService === index ? 'bg-[#64c5d2]' : 'bg-[#819fc2]'
               }`}>
                 
-                <i className={`${service.icon} text-2xl text-black`}></i>
+                <i className={`${service.icon} text-lg text-black`}></i>
               </div>
               </div>
               <p className={`mb-6 ${

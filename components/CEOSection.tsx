@@ -15,7 +15,7 @@ export default function CEOSection() {
                 <Image
                 data-aos="zoom-in"
                 data-aos-delay="200"
-                  src="/images/image2.jpeg"
+                  src="/images/ceo.jpeg"
                   alt="CEO Portrait"
                   width={100}
                   height={100}
