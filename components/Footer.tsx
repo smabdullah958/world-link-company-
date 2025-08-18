@@ -18,7 +18,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#002D62] text-white">
       <div className="container mx-auto px-6 py-10">
-        <div className="flex flex-wrap justify-between sm:grid sm:grid-cols-3 gap-8">
+        <div className="grid grid-1 sm:grid-cols-3 gap-8">
           <div>
             {/* <div className="flex items-center space-x-2 mb-6"> */}
               {/* <div className="w-10 h-10 bg-[#D4AF37] rounded-lg flex items-center justify-center">
@@ -32,7 +32,7 @@ export default function Footer() {
             {/* <Image src="/images/logo.jpeg" width={100} height={100}/> */}
             <Image src="/images/logo2.png" alt="WorldLink Exports Logo" width={200} height={200} className="rounded-full shadow-lg border-2 border-[#D4AF37] bg-blue-200 mb-5"/>
 
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37] duration-500  rounded-lg flex items-center justify-center transition-all cursor-pointer">
                 <i className="ri-facebook-fill text-lg"></i>
               </a>
@@ -46,7 +46,7 @@ export default function Footer() {
               <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer">
                 <i className="ri-instagram-line text-lg"></i>
               </a>
-            </div>
+            </div> */}
           </div>
 
           <div>

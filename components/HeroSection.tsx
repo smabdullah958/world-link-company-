@@ -68,7 +68,7 @@ export default function HeroSection() {
       <div className="relative z-10 container mx-auto px-6 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <div className="mb-1">
-            <span className="inline-block px-4 py-2 bg-[#092147]/20 backdrop-blur-sm rounded-full text-[#deca87]  text-xs sm:text-sm border border-[#D4AF37]/30  mt-12 lg:mt-8">
+            <span className="inline-block px-4 py-2 bg-[#092147]/20 backdrop-blur-sm rounded-full text-[#deca87]  text-xs sm:text-sm border border-[#D4AF37]/30  mt-8">
               Trusted Global Trade Partner Since 1995
             </span>
           </div>

@@ -159,7 +159,7 @@ export default function IndustriesSection() {
     
 <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
   <button className="bg-[#9dc4f0] hover:bg-[#82aad7] text-[#002D62] border-2 border-black
-    py-4 rounded-lg font-bold whitespace-nowrap cursor-pointer transition-all duration-500 hover:text-white transform hover:scale-105 w-full sm:w-48 text-sm sm:text-md ">
+    py-4 rounded-lg font-bold whitespace-nowrap cursor-pointer transition-all duration-500 hover:text-white transform hover:scale-105 w-full sm:w-48  sm:text-md ">
     Discuss Your Industry
   </button>
   <button className="border-2 border-[#002D62] text-[#002D62] bg-[#9dc4f0] hover:bg-[#82aad7] hover:text-white py-4 rounded-lg font-bold whitespace-nowrap cursor-pointer transition-all duration-500 transform hover:scale-105 w-full sm:w-48 ">
