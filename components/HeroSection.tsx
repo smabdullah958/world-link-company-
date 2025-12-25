@@ -2,7 +2,7 @@
 'use client';
 import axios from 'axios';
 import { useState } from 'react';
-
+import Link from "next/link";
 export default function HeroSection() {
    const [showQuoteForm, setShowQuoteForm] = useState(false);
   
@@ -98,9 +98,9 @@ export default function HeroSection() {
             >
               Request Free Quote
             </button>
-            <button className="border-2 bg-[#199fb1]  text-white hover:bg-[#199fce] hover:text-[#002D62] px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-1000 whitespace-nowrap cursor-pointer hover:scale-105">
+            <Link href="#services" className="border-2 bg-[#199fb1]  text-white hover:bg-[#199fce] hover:text-[#002D62] px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-1000 whitespace-nowrap cursor-pointer hover:scale-105">
               Explore Services
-            </button>
+            </Link>
           </div>
         </div>
 
